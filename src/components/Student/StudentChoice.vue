@@ -48,7 +48,7 @@
         mounted() {
             axios({
                 method: "GET",
-                url: `http://localhost:4000/student/getPassword?studentID=${this.$route.params.studentID}`
+                url: `http://localhost:14000/student/getPassword?studentID=${this.$route.params.studentID}`
             }).then(response => {
                 this.userData = response.data[0];
                 this.userData.studentBirthday = moment(this.userData.studentBirthday).format("YYYY-MM-DD");
@@ -56,20 +56,22 @@
 
             axios({
                 method: "GET",
-                url: `http://localhost:4000/student/getChoiceList?studentID=${this.$route.params.studentID}`
+                url: `http://localhost:14000/student/getChoiceList?studentID=${this.$route.params.studentID}`
             }).then(response => {
                 this.courseData = response.data;
                 console.log("courseData", this.courseData);
                 axios({
                     method: "GET",
-                    url: `http://localhost:4000/student/getAlreadyChoice?studentID=${this.$route.params.studentID}`
+                    // http://localhost:14000/student/getChoiceList?studentID=18407020432
+                    url: `http://localhost:14000/student/getAlreadyChoice?studentID=${this.$route.params.studentID}`
                 }).then(response => {
                     this.alreadyChoice = response.data;
                     console.log("alreadyChoice", this.alreadyChoice);
                     for (let i = 0; i < this.courseData.length; ++i) {
                         let flag = 1;
                         for (let j = 0; j < this.alreadyChoice.length; ++j) {
-                            if (this.alreadyChoice[j].courseName === this.courseData[i].courseName && this.alreadyChoice[j].teacherName === this.courseData[i].teacherName) {
+                            if (this.alreadyChoice[j].courseName === this.courseData[i].courseName 
+                            && this.alreadyChoice[j].teacherName === this.courseData[i].teacherName) {
                                 flag = 0;
                                 break;
                             }
@@ -92,9 +94,13 @@
                     courseScore: this.courseData[index].courseScore,
                     teacherID: this.courseData[index].teacherID,
                 }
-                axios.post("http://localhost:4000/student/choiceCourse", JSON.stringify(postObj))
+                axios.post("http://localhost:14000/student/choiceCourse", JSON.stringify(postObj))
                     .then(response => {
                         console.log(response.data);
+                        if(response.data == 'choice success') {
+                            alert("选课成功，同学要好好学习哦~")
+                            location.reload();
+                        }
                     });
             }
         }

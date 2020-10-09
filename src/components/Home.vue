@@ -10,7 +10,7 @@
                                 <v-col cols="10">
                                     <v-icon>mdi-school</v-icon>&nbsp;学生选课系统
                                 </v-col>
-                                <v-col cols="10">数据库原理与应用课程设计</v-col>
+                                <v-col cols="10">网页设计大作业</v-col>
                             </v-row>
                         </v-card-text>
                     </v-card>
@@ -26,7 +26,7 @@
                                 </v-col>
                                 <v-col cols="10">
                                     <v-icon>mdi-nodejs</v-icon>
-                                    后端：Node.js
+                                    后端：Node.js + Koa 2.x
                                 </v-col>
                                 <v-col cols="10">
                                     <v-icon>mdi-database</v-icon>
@@ -49,10 +49,10 @@
                                     <v-icon>mdi-google-classroom</v-icon>
                                     班级：软件工程1804
                                 </v-col>
-                                <v-col cols="10">
+                                <!-- <v-col cols="10">
                                     <v-icon>mdi-format-list-numbered</v-icon>
                                     学号：18407020432
-                                </v-col>
+                                </v-col> -->
                             </v-row>
                         </v-card-text>
                     </v-card>

@@ -52,7 +52,7 @@
             this.teacherID = this.$route.params.teacherID;
             axios({
                 method: "GET",
-                url: `http://localhost:4000/teacher/getTeachCourse?teacherID=${this.teacherID}`
+                url: `http://localhost:14000/teacher/getTeachCourse?teacherID=${this.teacherID}`
             }).then((response) => {
                 this.teachCourse = response.data;
                 for (let i = 0; i < this.teachCourse.length; ++i) {
@@ -62,7 +62,7 @@
                     };
                     axios({
                         method: "GET",
-                        url: `http://localhost:4000/teacher/getStudentList?teacherID=${postObj.teacherID}&courseID=${postObj.courseID}`
+                        url: `http://localhost:14000/teacher/getStudentList?teacherID=${postObj.teacherID}&courseID=${postObj.courseID}`
                     }).then(response => {
                         this.student.push(response.data);
                     });
@@ -74,7 +74,7 @@
                 console.log(courseID, studentID, grade, this.teacherID);
                 axios({
                     method: "GET",
-                    url: `http://localhost:4000/teacher/inGradeForStudent?studentID=${studentID}&courseID=${courseID}&teacherID=${this.teacherID}&grade=${grade}`
+                    url: `http://localhost:14000/teacher/inGradeForStudent?studentID=${studentID}&courseID=${courseID}&teacherID=${this.teacherID}&grade=${grade}`
                 }).then(response => {
                     console.log(response.data);
                     location.reload();

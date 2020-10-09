@@ -99,14 +99,14 @@
         mounted() {
             axios({
                 method: "GET",
-                url: `http://localhost:4000/student/getPassword?studentID=${this.$route.params.studentID}`
+                url: `http://localhost:14000/student/getPassword?studentID=${this.$route.params.studentID}`
             }).then(response => {
                 this.userData = response.data[0];
                 this.userData.studentBirthday = moment(this.userData.studentBirthday).format("YYYY-MM-DD");
             });
             axios({
                 method: "GET",
-                url: `http://localhost:4000/student/getAlreadyChoice?studentID=${this.$route.params.studentID}`
+                url: `http://localhost:14000/student/getAlreadyChoice?studentID=${this.$route.params.studentID}`
             }).then(response => {
                 this.alreadyChoice = response.data;
                 console.log(this.alreadyChoice);
@@ -114,7 +114,7 @@
         },
         methods: {
             updateStudent() {
-                axios.post('http://localhost:4000/admin/updateStudent', JSON.stringify(this.userData))
+                axios.post('http://localhost:14000/admin/updateStudent', JSON.stringify(this.userData))
                     .then(response => {
                         if (response.data === true) {
                             console.log('update success');
@@ -123,7 +123,7 @@
                 location.reload();
             },
             changePassword() {
-                axios.post('http://localhost:4000/student/changePassword', JSON.stringify({
+                axios.post('http://localhost:14000/student/changePassword', JSON.stringify({
                     studentID: this.userData.studentID,
                     studentPassword: this.newPassword
                 }))

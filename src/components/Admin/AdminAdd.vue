@@ -149,7 +149,7 @@
         methods: {
 addNewStudent() {
     // 以添加新的学生为例
-    axios.post('http://localhost:4000/admin/addNewStudent', JSON.stringify(this.studentData))
+    axios.post('http://localhost:14000/admin/addNewStudent', JSON.stringify(this.studentData))
         // 以json字符串的形式发送post请求
         .then(response => {
             if (response.data === true) {
@@ -161,7 +161,7 @@ addNewStudent() {
         });
 },
             addNewTeacher() {
-                axios.post('http://localhost:4000/admin/addNewTeacher', JSON.stringify(this.teacherData))
+                axios.post('http://localhost:14000/admin/addNewTeacher', JSON.stringify(this.teacherData))
                     .then(response => {
                         if (response.data === true) {
                             this.teacherData = {};
@@ -170,7 +170,7 @@ addNewStudent() {
                     });
             },
             addNewCourse() {
-                axios.post('http://localhost:4000/admin/addNewCourse', JSON.stringify(this.courseData))
+                axios.post('http://localhost:14000/admin/addNewCourse', JSON.stringify(this.courseData))
                     .then(response => {
                         console.log(response);
                         if (response.data === true) {

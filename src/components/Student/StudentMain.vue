@@ -34,7 +34,7 @@
         mounted() {
             axios({
                 method: "GET",
-                url: `http://localhost:4000/student/getPassword?studentID=${this.$route.params.studentID}`
+                url: `http://localhost:14000/student/getPassword?studentID=${this.$route.params.studentID}`
             })
                 .then(response => {
                     this.userData = response.data;

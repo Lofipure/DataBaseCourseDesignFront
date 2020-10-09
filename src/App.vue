@@ -85,7 +85,7 @@
                     console.log(this.userData.userName, this.userData.userPassword);
                     axios({
                         method: "GET",
-                        url: `http://localhost:4000/student/getPassword?studentID=${this.userData.userName}`
+                        url: `http://localhost:14000/student/getPassword?studentID=${this.userData.userName}`
                     }).then(response => {
                         let password = response.data[0].studentPassword;
                         console.log(password);
@@ -100,7 +100,7 @@
                 } else if (this.userData.role === 'teachers') {
                     axios({
                         method: "GET",
-                        url: `http://localhost:4000/teacher/getPassword?teacherID=${this.userData.userName}`
+                        url: `http://localhost:14000/teacher/getPassword?teacherID=${this.userData.userName}`
                     }).then(response => {
                         let password = response.data[0].teacherPassword;
                         if (this.userData.userPassword === password) {

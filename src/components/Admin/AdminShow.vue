@@ -251,7 +251,7 @@
         mounted() {
             axios({
                 method: "GET",
-                url: "http://localhost:4000/admin/showAllUsers",
+                url: "http://localhost:14000/admin/showAllUsers",
             }).then((response) => {
                 console.log(response);
                 this.showData = response.data;
@@ -261,7 +261,7 @@
             deleteStudent(studentID) {
                 axios({
                     method: "GET",
-                    url: `http://localhost:4000/admin/deleteStudent?index=${studentID}`,
+                    url: `http://localhost:14000/admin/deleteStudent?index=${studentID}`,
                 }).then(response => {
                     console.log(response);
                     this.refresh = true;
@@ -271,7 +271,7 @@
             deleteTeacher(teacherID) {
                 axios({
                     method: "GET",
-                    url: `http://localhost:4000/admin/deleteTeacher?index=${teacherID}`,
+                    url: `http://localhost:14000/admin/deleteTeacher?index=${teacherID}`,
                 }).then(response => {
                     if (response.data === true) {
                         console.log(response)
@@ -282,7 +282,7 @@
             deleteCourse(courseID) {
                 axios({
                     method: "GET",
-                    url: `http://localhost:4000/admin/deleteCourse?index=${courseID}`
+                    url: `http://localhost:14000/admin/deleteCourse?index=${courseID}`
                 }).then(response => {
                     console.log(response)
                 });
@@ -294,7 +294,7 @@
                 this.$data.forStudentChangeStatus = true;
             },
             sureUpdateStudent() {
-                axios.post('http://localhost:4000/admin/updateStudent', JSON.stringify(this.forStudentChange))
+                axios.post('http://localhost:14000/admin/updateStudent', JSON.stringify(this.forStudentChange))
                     .then(response => {
                         if (response.data === true) {
                             console.log('update success');
@@ -307,7 +307,7 @@
                 this.forTeacherChangeStatus = true;
             },
             sureUpdateTeacher() {
-                axios.post('http://localhost:4000/admin/updateTeacher', JSON.stringify(this.forTeacherChange))
+                axios.post('http://localhost:14000/admin/updateTeacher', JSON.stringify(this.forTeacherChange))
                     .then(response => {
                         if (response.data === true) {
                             console.log('update success');
@@ -320,7 +320,7 @@
                 this.forCourseChangeStatus = true;
             },
             sureUpdateCourse() {
-                axios.post('http://localhost:4000/admin/updateCourse', JSON.stringify(this.forCourseChange))
+                axios.post('http://localhost:14000/admin/updateCourse', JSON.stringify(this.forCourseChange))
                     .then(response => {
                         if (response.data === true) {
                             console.log('update success');

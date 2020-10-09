@@ -34,9 +34,10 @@
         mounted() {
             axios({
                 method: "GET",
-                url: `http://localhost:4000/teacher/getPassword?teacherID=${this.$route.params.teacherID}`
+                url: `http://localhost:14000/teacher/getPassword?teacherID=${this.$route.params.teacherID}`
             }).then(response => {
                 this.userData = response.data;
+                console.log(this.userData);
                 this.menu = [
                     {
                         name: "信息",

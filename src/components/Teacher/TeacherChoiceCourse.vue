@@ -45,13 +45,13 @@
         mounted() {
             axios({
                 method: "GET",
-                url: `http://localhost:4000/course/getAll`
+                url: `http://localhost:14000/course/getAll`
             }).then(response => {
                 this.courseData = response.data;
                 console.log(this.courseData);
                 axios({
                     method: "GET",
-                    url: `http://localhost:4000/teacher/getAlreadyChoice?teacherID=${this.$route.params.teacherID}`
+                    url: `http://localhost:14000/teacher/getAlreadyChoice?teacherID=${this.$route.params.teacherID}`
                 }).then(response => {
                     this.alreadyChoice = response.data;
                     console.log(this.alreadyChoice);
@@ -80,10 +80,11 @@
                     courseScore: this.courseData[i].courseScore,
                 };
                 // console.log(postObj);
-                axios.post(`http://localhost:4000/teacher/sendCourseChoice`, JSON.stringify(postObj))
+                axios.post(`http://localhost:14000/teacher/sendCourseChoice`, JSON.stringify(postObj))
                     .then(response => {
                         if (response.data === true) {
-                            console.log("choice success");
+                            alert("选课成功，老师幸苦了~");
+                            location.reload();
                         }
                     });
             }
